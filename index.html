@@ -3,17 +3,48 @@
 <head>
 	<meta charset="utf-8">
 	<script>
-		// TODO: create a handler
-    window.addEventListener("load", function(){
-        // TODO: register the handler
-    });
+		link rel = "stylesheet" href = "css/styles.css" >
+			// TODO: create a handler
+			function setSearchEngine() {
+
+				let actions = {
+					"google": "https://www.google.com/search",
+					"duckDuckGo": "https://duckduckgo.com/",
+					"Bing": "https://www.bing.com/search",
+					"ask": "https://www.ask.com/web",
+				};
+				console.log("setSearchEngine started!")
+				let engine = document.querySelector("input[name=engine]:checked");
+				let query = document.getElementById('searchbar');
+				if (engine && query) {
+					engine = engine.value;
+					query = query.value;
+					let actionURL = actions[engine];
+					let mtForm = document.getElementById('searchForm');
+					myForm.setAttribute("action", actionURL);
+					console.log("setSearchEngine complete!")
+				}
+				else {
+					event.preventDefault();
+				}
+			}
+		window.addEventListener("load", function () {
+			// TODO: register the handler
+			window.addEventListener("submit", setSearchEngine); // no parenth to avoid invoke
+		})
 	</script>
 </head>
 
 <body>
-
+	<img src="images/Magic Search.png" id="banner" alt="Starr's awesome image">
 	<form id="searchForm">
-    <!-- TODO: add form elements -->
+		<!-- TODO: add form elements -->
+		<label>Search <input type="text" name="q" /></label>
+		<label><input type="radio" name="engine" value="google" />Google</label>
+		<label><input type="radio" name="engine" value="duckDuckGo" />DuckDuckGo</label>
+		<label><input type="radio" name="engine" value="bing" />Bing</label>
+		<label><input type="radio" name="engine" value="ask" />Ask</label>
+		<input type="submit" value="Go" />
 	</form>
 
 </body>

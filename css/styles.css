@@ -1,0 +1,16 @@
+body
+{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    font-size: large;
+    
+}
+
+#banner
+{
+    width: 40%;
+    height: 40%;
+}
